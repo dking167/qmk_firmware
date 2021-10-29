@@ -34,7 +34,7 @@ enum planck_keycodes {
   COLEMAK,
   DVORAK,
   PLOVER,
-  BACKLIT,
+  //BACKLIT,
   EXT_PLV,
   SONG_1,
   SONG_2,
@@ -179,7 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 /* Numpad
- *                      
+ *
  * ,-----------------------------------------------------------------------------------.
  * | Home | Reset|Debug | RGB  |RGBMOD| HUE+ | HUE- | SAT+ | SAT- |BRGTH+|BRGTH-|  Del |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -192,8 +192,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_NUMPAD] = LAYOUT_planck_grid(
     KC_HOME, KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_NO,   KC_PSLS, KC_P7, KC_P8,  KC_P9, KC_PMNS, KC_BSPC ,
-    KC_END,  KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_NO,   KC_PAST, KC_P4,  KC_P5,  KC_P6,  KC_PPLS, KC_NO,
-    KC_NO,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_NO,   KC_P0,  KC_P1, KC_P2, KC_P3, KC_PDOT, KC_COMM,
+    KC_END,  KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_NO,   KC_PAST, KC_P4, KC_P5,  KC_P6, KC_PPLS, KC_NO,
+    KC_NO,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_NO,   KC_P0,   KC_P1, KC_P2,  KC_P3, KC_PDOT, KC_COMM,
     KC_NO,   KC_LGUI, KC_LALT, LCTL_T(KC_DEL), KC_NO, LSFT_T(KC_BSPC), KC_SPC, KC_LEFT, KC_DOWN,  KC_UP, KC_RGHT, KC_ENT
 )
 
@@ -275,7 +275,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case BACKLIT:
+    /*case BACKLIT:
       if (record->event.pressed) {
         register_code(KC_RSFT);
         #ifdef BACKLIGHT_ENABLE
@@ -291,7 +291,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #endif
       }
       return false;
-      break;
+      break;*/
     case PLOVER:
       if (record->event.pressed) {
         #ifdef AUDIO_ENABLE
@@ -389,7 +389,7 @@ uint8_t last_muse_note = 0;
 uint16_t muse_counter = 0;
 uint8_t muse_offset = 70;
 uint16_t muse_tempo = 50;
-
+/*
 void encoder_update(bool clockwise) {
   if (muse_mode) {
     if (IS_LAYER_ON(_RAISE)) {
@@ -452,7 +452,7 @@ void dip_switch_update_user(uint8_t index, bool active) {
             }
     }
 }
-
+*/
 void matrix_scan_user(void) {
 #ifdef AUDIO_ENABLE
     if (muse_mode) {
